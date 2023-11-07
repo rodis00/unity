@@ -10,6 +10,8 @@ public class LookAround : MonoBehaviour
 
     public float sensitivity = 200f;
 
+    private float xRotation = 0.0f;
+
     void Start()
     {
         // zablokowanie kursora na œrodku ekranu, oraz ukrycie kursora
@@ -26,9 +28,14 @@ public class LookAround : MonoBehaviour
         // wykonujemy rotacjê wokó³ osi Y
         player.Rotate(Vector3.up * mouseXMove);
 
+        xRotation -= mouseYMove;
+        xRotation = Mathf.Clamp(xRotation, -90.0f, 90.0f);
+
         // a dla osi X obracamy kamerê dla lokalnych koordynatów
         // -mouseYMove aby unikn¹æ ofektu mouse inverse
-        transform.Rotate(new Vector3(-mouseYMove, 0f, 0f), Space.Self);
+        // transform.Rotate(new Vector3(-mouseYMove, 0f, 0f), Space.Self);
+
+        transform.localRotation = Quaternion.Euler(xRotation, 0.0f, 0.0f);
 
     }
 }

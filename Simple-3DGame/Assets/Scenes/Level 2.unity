@@ -7335,6 +7335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 58742273}
   time: 35
+  badCharacter: {fileID: 1451957324416928856, guid: 30f54889d405b504c85a9758f25e93a4, type: 3}
 --- !u!43 &1383095404
 Mesh:
   m_ObjectHideFlags: 0
@@ -11307,7 +11308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b11dc079ac66c43a6ede52b715ffa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  badCharacter: {fileID: 1451957324416928856, guid: 30f54889d405b504c85a9758f25e93a4, type: 3}
 --- !u!43 &2032792256
 Mesh:
   m_ObjectHideFlags: 0

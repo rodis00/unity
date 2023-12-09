@@ -6,8 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Time Settings")]
     public TextMeshProUGUI timeText;
     public float time;
+
+    [Header("Level Settings")]
+    public GameObject badCharacter;
+
     void Start()
     {
         Time.timeScale = 1f;
@@ -43,5 +48,10 @@ public class GameManager : MonoBehaviour
     public void LoadFirstScene()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void InstantiateBadCharacter(Vector3 position)
+    {
+        Instantiate(badCharacter, position, Quaternion.identity).transform.Rotate(0, 180, 0);
     }
 }

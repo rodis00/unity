@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    public GameObject badCharacter;
     private int sceneIndex;
     private GameManager manager;
     void Start()
@@ -18,9 +17,7 @@ public class NextLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player in finish");
-            Instantiate(badCharacter, new Vector3(-0.1f, 1.85f, 76), Quaternion.identity).transform.Rotate(0, 180, 0);
-
+            manager.InstantiateBadCharacter(new Vector3(-0.1f, 1.85f, 76));
             StartCoroutine(LoadNextSceneAfterDelay(0.5f));
         }
     }

@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    private GameObject badCharacter;
+    public GameObject badCharacter;
     private int sceneIndex;
     private GameManager manager;
     void Start()
     {
-        badCharacter = GameObject.FindGameObjectWithTag("BadCharacter");
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
@@ -20,9 +19,9 @@ public class NextLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player in finish");
-            badCharacter.transform.Translate(0, 5f, 0);
+            Instantiate(badCharacter, new Vector3(-0.1f, 1.85f, 76), Quaternion.identity).transform.Rotate(0, 180, 0);
 
-            StartCoroutine(LoadNextSceneAfterDelay(1f));
+            StartCoroutine(LoadNextSceneAfterDelay(0.5f));
         }
     }
 

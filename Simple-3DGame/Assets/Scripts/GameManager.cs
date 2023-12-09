@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
         if (time <= 3)
         {
             timeText.color = Color.red;
+            timeText.fontStyle = FontStyles.Bold;
             Time.timeScale = 0.5f;
         }
         if (time <= 0)

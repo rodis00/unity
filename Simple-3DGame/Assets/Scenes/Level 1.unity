@@ -2572,6 +2572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77cc903333f3b14c92a1966b04ba58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeText: {fileID: 58742273}
+  time: 10
 --- !u!1001 &1393964393
 PrefabInstance:
   m_ObjectHideFlags: 0

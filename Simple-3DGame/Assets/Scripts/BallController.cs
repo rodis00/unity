@@ -19,21 +19,19 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
+        if (transform.position.y <= -10f)
+            manager.ResetLevel();
+    }
 
+    private void FixedUpdate()
+    {
         float directionH = Input.GetAxis("Horizontal");
         float directionV = Input.GetAxis("Vertical");
 
         if (directionH != 0)
-        {
-            rb.AddTorque(0, 0, -directionH * Time.deltaTime * speed);
-        }
-        if (directionV != 0)
-        {
-            rb.AddTorque(directionV * Time.deltaTime * speed, 0, 0);
-        }
+            rb.AddTorque(0, 0, -directionH * Time.fixedDeltaTime * speed);
 
-        if (transform.position.y <= -10f)
-            manager.ResetLevel();
-        
+        if (directionV != 0)
+            rb.AddTorque(directionV * Time.fixedDeltaTime * speed, 0, 0);
     }
 }

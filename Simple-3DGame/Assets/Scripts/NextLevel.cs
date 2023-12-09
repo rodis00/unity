@@ -22,7 +22,7 @@ public class NextLevel : MonoBehaviour
             Debug.Log("Player in finish");
             badCharacter.transform.Translate(0, 5f, 0);
 
-            StartCoroutine(LoadNextSceneAfterDelay(2f));
+            StartCoroutine(LoadNextSceneAfterDelay(1f));
         }
     }
 

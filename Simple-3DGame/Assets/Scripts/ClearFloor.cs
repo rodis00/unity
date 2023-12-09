@@ -29,7 +29,7 @@ public class ClearFloor : MonoBehaviour
         {
             isCleared = true;
         }
-        objectsToDestroy.text = "squares removed: " + floorChildren.ToString();
+        objectsToDestroy.text = "Squares to remove: " + floorChildren.ToString();
 
     }
 

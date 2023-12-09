@@ -7,7 +7,7 @@ public class DestroyObject : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y <= -10f)
+        if (transform.position.y <= -5f)
             Destroy(this.gameObject);
     }
 }

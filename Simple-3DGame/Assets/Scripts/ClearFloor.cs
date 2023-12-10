@@ -38,21 +38,7 @@ public class ClearFloor : MonoBehaviour
         if (other.CompareTag("Player") && isCleared)
         {
             gameManager.InstantiateBadCharacter(new Vector3(-0.1f, 1.85f, 76));
-            StartCoroutine(LoadNextSceneAfterDelay(0.5f));
-        }
-    }
-
-    IEnumerator LoadNextSceneAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        if (SceneManager.sceneCountInBuildSettings > sceneIndex + 1)
-        {
-            gameManager.LoadNextScene(sceneIndex + 1);
-        }
-        else
-        {
-            gameManager.LoadFirstScene();
+            StartCoroutine(gameManager.LoadNextSceneAfterDelay(0.5f));
         }
     }
 

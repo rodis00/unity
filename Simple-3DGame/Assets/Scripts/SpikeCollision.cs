@@ -18,7 +18,6 @@ public class SpikeCollision : MonoBehaviour
         {
             Rigidbody ballRb = ball.GetComponent<Rigidbody>();
             ballRb.AddForce(transform.forward * Time.deltaTime * force, ForceMode.Impulse);
-            Debug.Log("collision detected");
         }
     }
 }

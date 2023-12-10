@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Level Settings")]
     public GameObject badCharacter;
+    private int sceneIndex;
 
     void Start()
     {
         Time.timeScale = 1f;
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     void Update()
@@ -53,5 +55,19 @@ public class GameManager : MonoBehaviour
     public void InstantiateBadCharacter(Vector3 position)
     {
         Instantiate(badCharacter, position, Quaternion.identity).transform.Rotate(0, 180, 0);
+    }
+
+    public IEnumerator LoadNextSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (SceneManager.sceneCountInBuildSettings > sceneIndex + 1)
+        {
+            LoadNextScene(sceneIndex + 1);
+        }
+        else
+        {
+            LoadFirstScene();
+        }
     }
 }

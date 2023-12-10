@@ -267,7 +267,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1065935730115233852, guid: f00881399cfa126479652c58cc60e1af, type: 3}
       propertyPath: lives
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1565445203997208424, guid: f00881399cfa126479652c58cc60e1af, type: 3}
       propertyPath: m_LocalScale.x
@@ -1262,7 +1262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 58742273}
-  time: 60
+  time: 120
   badCharacter: {fileID: 1451957324416928856, guid: 30f54889d405b504c85a9758f25e93a4, type: 3}
 --- !u!1 &1610396811
 GameObject:

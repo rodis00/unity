@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameManager : MonoBehaviour
 {
     [Header("Time Settings")]
@@ -14,16 +16,21 @@ public class GameManager : MonoBehaviour
     public GameObject badCharacter;
     private int sceneIndex;
 
+    [Header("Audio Settings")]
+    private AudioSource audioSource;
+    public AudioClip restartAudio;
+
     void Start()
     {
         Time.timeScale = 1f;
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         time -= Time.deltaTime;
-        timeText.text = "Time: " + Mathf.CeilToInt(time).ToString();
+        timeText.text = "Time: " + Mathf.Clamp(Mathf.CeilToInt(time), 0, int.MaxValue).ToString();
 
         if (time <= 3)
         {
@@ -33,7 +40,8 @@ public class GameManager : MonoBehaviour
         }
         if (time <= 0)
         {
-            ResetLevel();
+            StartCoroutine(ResetLevelAfterDelay(1.2f));
+            audioSource.PlayOneShot(restartAudio);
         }
     }
 
@@ -69,5 +77,17 @@ public class GameManager : MonoBehaviour
         {
             LoadFirstScene();
         }
+    }
+
+    private IEnumerator ResetLevelAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        ResetLevel();
+    }
+
+    public void ReduceTime(float time)
+    {
+        this.time -= time;
     }
 }

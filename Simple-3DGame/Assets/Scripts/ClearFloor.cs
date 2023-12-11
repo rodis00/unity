@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class ClearFloor : MonoBehaviour
 {
     private GameObject floor;
@@ -13,11 +14,16 @@ public class ClearFloor : MonoBehaviour
     private int sceneIndex;
     public TextMeshProUGUI objectsToDestroy;
 
+    [Header("Audio Settings")]
+    private AudioSource audioSource;
+    public AudioClip scaryAudio;
+
     void Start()
     {
         floor = GameObject.FindWithTag("LevelObjects");
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -37,6 +43,7 @@ public class ClearFloor : MonoBehaviour
     {
         if (other.CompareTag("Player") && isCleared)
         {
+            audioSource.PlayOneShot(scaryAudio);
             gameManager.InstantiateBadCharacter(new Vector3(-0.1f, 1.85f, 76));
             StartCoroutine(gameManager.LoadNextSceneAfterDelay(0.5f));
         }

@@ -9,14 +9,20 @@ public class DestroyObject : MonoBehaviour
     public AudioClip hitAudio;
     private AudioSource audioSource;
 
+    private GameManager gameManager;
+
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();    
+        audioSource = GetComponent<AudioSource>();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
     void Update()
     {
         if (transform.position.y <= -5f)
+        {
+            gameManager.AddTime(5f);
             Destroy(this.gameObject);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {

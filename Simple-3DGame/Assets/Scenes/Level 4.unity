@@ -1263,7 +1263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 58742273}
-  time: 60
+  time: 40
   badCharacter: {fileID: 1451957324416928856, guid: 30f54889d405b504c85a9758f25e93a4, type: 3}
   restartAudio: {fileID: 8300000, guid: af3250233526e5240883e11222984056, type: 3}
 --- !u!82 &1344951243

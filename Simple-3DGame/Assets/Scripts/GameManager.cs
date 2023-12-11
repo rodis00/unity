@@ -90,4 +90,9 @@ public class GameManager : MonoBehaviour
     {
         this.time -= time;
     }
+
+    public void AddTime(float time)
+    {
+        this.time += time;
+    }
 }

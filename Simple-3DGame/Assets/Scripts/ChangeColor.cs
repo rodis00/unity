@@ -14,10 +14,13 @@ public class ChangeColor : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip hitAudio;
 
+    private GameManager gameManager;
+
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         audioSource = GetComponent<AudioSource>();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -25,6 +28,7 @@ public class ChangeColor : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             audioSource.PlayOneShot(hitAudio);
+            gameManager.AddTime(2f);
 
             if (lives == 1)
                 lives = 3;

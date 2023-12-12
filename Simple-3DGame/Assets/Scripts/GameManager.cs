@@ -95,10 +95,22 @@ public class GameManager : MonoBehaviour
     public void ReduceTime(float time)
     {
         this.time -= time;
+        timeText.color = Color.red;
+        StartCoroutine(ChangeFontColorDelay(.5f));
     }
 
     public void AddTime(float time)
     {
         this.time += time;
+        timeText.color = Color.green;
+        StartCoroutine(ChangeFontColorDelay(.5f));
+        
+    }
+
+    IEnumerator ChangeFontColorDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        timeText.color = Color.white;
     }
 }

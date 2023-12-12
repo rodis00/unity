@@ -41,7 +41,8 @@ public class GreenIsOn : MonoBehaviour
         {
             audioSource.PlayOneShot(scaryAudio);
             gameManager.InstantiateBadCharacter(new Vector3(-0.1f, 1.85f, 76));
-            StartCoroutine(gameManager.LoadNextSceneAfterDelay(.5f));
+            gameManager.time += 2f;
+            StartCoroutine(gameManager.LoadNextSceneAfterDelay(2f));
         }
     }
 }

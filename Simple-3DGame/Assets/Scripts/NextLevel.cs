@@ -26,7 +26,8 @@ public class NextLevel : MonoBehaviour
         {
             audioSource.PlayOneShot(scarySound);
             gameManager.InstantiateBadCharacter(new Vector3(-0.1f, 1.85f, 76));
-            StartCoroutine(gameManager.LoadNextSceneAfterDelay(0.5f));
+            gameManager.time += 3f;
+            StartCoroutine(gameManager.LoadNextSceneAfterDelay(2f));
         }
     }
 }

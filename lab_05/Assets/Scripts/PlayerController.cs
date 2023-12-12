@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = true;
     private float playerSpeed = 5.0f;
     private float jumpHeight = 1.0f;
+    private Rigidbody rb;
 
     private void Start()
     {
-       
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
 
     void Update()

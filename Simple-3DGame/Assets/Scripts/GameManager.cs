@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         audioSource = GetComponent<AudioSource>();
+        UnityEngine.Cursor.visible = false;
     }
 
     void Update()
